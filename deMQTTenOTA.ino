@@ -37,14 +37,14 @@ void OTAserver() {
 /// ****** MQTT_connect switch zaken *********
 void OTAenMQTT() {
   MQTT_connect();
-  
+
   Adafruit_MQTT_Subscribe *subscription;
   while ((subscription = mqtt.readSubscription(500))) {// getal is aantal millis tussen de lees en schrijf acties
     if (subscription == &onoffbutton) {
       uint16_t num = atoi((char *)onoffbutton.lastread);
       updateOTA = num;
     }
-  }  
+  }
   if (updateOTA == 1) {
     // OTA mode nu kan je updaten over Air
     ArduinoOTA.handle();
@@ -64,7 +64,7 @@ void OTAenMQTT() {
     unsigned int helderheid = map(analogRead(A0), 1, 700, 3, 100);
     strip.setBrightness(helderheid);
     strip.show();
-    
+
     verstrekenLedsUit(hour()); // -- Leds uitzetten die al voorbij zijn
   }
  // ping the server to keep the mqtt connection alive
@@ -72,7 +72,7 @@ void OTAenMQTT() {
   if(! mqtt.ping()) {
     mqtt.disconnect();
   }
-  
+
 }
 
 void MQTT_connect() {
@@ -82,7 +82,7 @@ void MQTT_connect() {
   }
   Serial.print("Connecting to MQTT... ");
   uint8_t retries = 3;
-  
+
   while ((ret = mqtt.connect()) != 0) { // connect will return 0 for connected
     Serial.println(mqtt.connectErrorString(ret));
     Serial.println("Retrying MQTT connection in 5 seconds...");

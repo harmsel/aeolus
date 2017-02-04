@@ -17,12 +17,12 @@
 //#define WLAN_SSID       "DeMachine"
 //#define WLAN_PASS       "88888888"
 
-// voor de regelmatige updates van de server
+
 const char* server = "http://supplement.nl/wind/aeolusData.php";
 String laatsteUpdate = "firstrun";
 int oudeMinuten = -99; // dan gaat hij na uploaden van code eerst een update halen
 
-//host name voor MQTT
+//host name OTA
 #define HOST_NAME "aeolus"
 
 // tijd voor switch tussen OTA en programma draaien
@@ -55,7 +55,7 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 
 //---  Feeds ----------------------------------
 // verander alleen achteraan de regel alleen naam /feeds/naam
-Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/ota-onoff");
+Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/otaswitch");
 Adafruit_MQTT_Publish MQTT_debug = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/mqtt-debug");
 Adafruit_MQTT_Publish verseWind = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/versewind");
 
