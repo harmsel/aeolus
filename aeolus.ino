@@ -12,8 +12,8 @@
 /************************* WiFi Access Point *********************************/
 
 
-#define WLAN_SSID "IOT"
-#define WLAN_PASS "!HvAIOT!"
+#define WLAN_SSID "your SSID"
+#define WLAN_PASS "your Pass"
 //#define WLAN_SSID       "DeMachine"
 //#define WLAN_PASS       "88888888"
 
