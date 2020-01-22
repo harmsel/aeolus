@@ -44,7 +44,7 @@ int itemsInArray;
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
 #define AIO_USERNAME    "harmsel"
-#define AIO_KEY         "6a9288dd7ff74fe688aecb2a283aacd2"
+#define AIO_KEY         "----"
 
 // ----  ESP8266 WiFiClient class to connect to the MQTT server.
 WiFiClient client; // or... use WiFiFlientSecure for SSL
